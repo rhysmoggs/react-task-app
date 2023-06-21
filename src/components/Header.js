@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header>
+    <header className='container'>
       <h1>Task Tracker</h1>
     </header>
   )
