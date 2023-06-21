@@ -1,9 +1,9 @@
-const Header = () => {
+const Button = () => {
   return (
-    <header className='container'>
-      <h1>Task Tracker</h1>
+    <header>
+      <h1>Welcome</h1>
     </header>
   )
 }
 
-export default Header
+export default Button

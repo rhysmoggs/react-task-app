@@ -12,24 +12,24 @@ code {
     monospace;
 }
 
-button {
-  margin: 1rem;
-  padding: 1rem 2rem;
+.wrapper {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
 }
 
-.wrapper {
-  border: solid black 2px;
+header {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  margin: 1rem;
+  text-transform: uppercase;
 }
 
-.container {
-  border: solid red 2px;
-  max-width: 100%;
-  height: auto;
-  padding: 2rem;
+button {
   margin: 1rem;
+  padding: 1rem 2rem;
 }
