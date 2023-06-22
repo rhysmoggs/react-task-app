@@ -1,13 +1,10 @@
-const Button = ({ testProp }) => {
-  const handleClickFunction = (e) => {
-    console.log(e.target)
-    alert(`'You clicked me, ${testProp}!`)
-  }
-
+const Button = ({ testProp, onClick }) => {
   return (
-    <>
-      <button onClick={handleClickFunction}>Add Task</button>
-    </>
+    <div>
+      <button onClick={onClick} className='btn'>
+        {testProp}
+      </button>
+    </div>
   )
 }
 
