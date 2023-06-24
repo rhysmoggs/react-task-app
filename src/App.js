@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Button from './components/Button'
 import Task from './components/Task'
+import AddTask from './components/AddTask'
 
 const App = () => {
   const taskData = [
@@ -18,6 +19,7 @@ const App = () => {
   return (
     <div className='wrapper'>
       <Header />
+      <AddTask />
       <Task taskInfo={taskData} />
       <Button onClick={handleClickFunction} testProp='yaaay' />
     </div>
