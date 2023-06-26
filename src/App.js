@@ -1,7 +1,7 @@
 import Header from './components/Header'
-import Button from './components/Button'
 import Task from './components/Task'
 import AddTask from './components/AddTask'
+import { Button } from '@mui/material'
 
 const App = () => {
   const taskData = [
@@ -21,7 +21,10 @@ const App = () => {
       <Header />
       <AddTask />
       <Task taskInfo={taskData} />
-      <Button onClick={handleClickFunction} testProp='yaaay' />
+      {/* <Button onClick={handleClickFunction} testProp='yaaay' /> */}
+      <Button variant='contained' onClick={handleClickFunction}>
+        Add Task
+      </Button>
     </div>
   )
 }
