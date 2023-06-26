@@ -13,6 +13,7 @@ body {
     monospace;
 } */
 
+/* currently not used. using Box from MUI instead */
 .wrapper {
   max-width: 500px;
   margin: 30px auto;

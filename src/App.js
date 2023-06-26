@@ -1,7 +1,7 @@
 import Header from './components/Header'
 import Task from './components/Task'
 import AddTask from './components/AddTask'
-import { Button } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 const App = () => {
   const taskData = [
@@ -17,15 +17,27 @@ const App = () => {
   }
 
   return (
-    <div className='wrapper'>
+    // <div className='wrapper'>
+    <Box
+      sx={{
+        maxWidth: '500px',
+        margin: '30px auto',
+        overflow: 'auto',
+        minHeight: '300px',
+        border: '1px solid blue',
+        padding: '30px',
+        borderRadius: '5px',
+        backgroundColor: '#d9d9d9',
+      }}
+    >
       <Header />
-      <AddTask />
+      <AddTask taskInfo={taskData} />
       <Task taskInfo={taskData} />
-      {/* <Button onClick={handleClickFunction} testProp='yaaay' /> */}
       <Button variant='contained' onClick={handleClickFunction}>
         Add Task
       </Button>
-    </div>
+    </Box>
+    // </div>
   )
 }
 
