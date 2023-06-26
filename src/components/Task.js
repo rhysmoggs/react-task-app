@@ -2,10 +2,10 @@ import React from 'react'
 
 function Task({ taskInfo }) {
   return (
-    <div className='task'>
+    <div className='container'>
       {taskInfo.map((task) => (
         //change to individual task className styling?
-        <div className='task'>
+        <div className='container'>
           <p>{task.task}</p>
           <p>{task.priority}</p>
           <p>{task.day}</p>

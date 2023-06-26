@@ -6,6 +6,7 @@ function AddTask() {
   const handleSubmit = (e) => {
     //prevents form from submitting
     e.preventDefault()
+    //log state to console after form submission click
     console.log(task)
   }
 
@@ -13,14 +14,13 @@ function AddTask() {
 
   return (
     // handleSubmit function, add completed form to state
-    <form onSubmit={handleSubmit}>
+    <form className='container' onSubmit={handleSubmit}>
       <div>
         <label>
           Task:
           {/* <input type='text' value={state.value} onChange={handleChange} /> */}
           <input
             type='text'
-            plaecholder='Add Task'
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
