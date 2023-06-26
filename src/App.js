@@ -2,8 +2,11 @@ import Header from './components/Header'
 import Task from './components/Task'
 import AddTask from './components/AddTask'
 import { Box, Button } from '@mui/material'
+import { useState } from 'react'
 
 const App = () => {
+  const [showAddTask, setShowAddTask] = useState(false)
+
   const taskData = [
     { task: 'create this app', priority: 'high', day: 'monday' },
     { task: 'style app', priority: 'low', day: 'saturday' },
@@ -11,9 +14,7 @@ const App = () => {
 
   const handleClickFunction = (e) => {
     console.log(e.target)
-    const newTask = document.createElement('div')
-    newTask.innerHTML = `<p>testing add new task</p>`
-    document.body.append(newTask)
+    setShowAddTask(!showAddTask)
   }
 
   return (
@@ -31,7 +32,7 @@ const App = () => {
       }}
     >
       <Header />
-      <AddTask taskInfo={taskData} />
+      {showAddTask ? <AddTask taskInfo={taskData} /> : null}
       <Task taskInfo={taskData} />
       <Button variant='contained' onClick={handleClickFunction}>
         Add Task
