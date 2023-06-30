@@ -3,6 +3,7 @@ import Task from './components/Task'
 import AddTask from './components/AddTask'
 import { Box, Button } from '@mui/material'
 import { useState } from 'react'
+import TestAddTask from './components/TestAddTask'
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
@@ -15,6 +16,21 @@ const App = () => {
   const handleClickFunction = (e) => {
     console.log(e.target)
     setShowAddTask(!showAddTask)
+  }
+
+  const pull_data = (data) => {
+    console.log(data) // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+    const newBlock = document.createElement('h4')
+    newBlock.innerHTML = `hey there ${data}`
+    document.body.append(newBlock)
+  }
+
+  //linked to test on AddTask component
+  const get_data = (data) => {
+    console.log(data) // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+    const newBlock = document.createElement('h2')
+    newBlock.innerHTML = `this is working, look: ${data}`
+    document.body.append(newBlock)
   }
 
   return (
@@ -32,11 +48,12 @@ const App = () => {
       }}
     >
       <Header />
-      {showAddTask ? <AddTask taskInfo={taskData} /> : null}
-      <Task taskInfo={taskData} />
+      <TestAddTask func={pull_data} />
       <Button variant='contained' onClick={handleClickFunction}>
         Add Task
       </Button>
+      {showAddTask ? <AddTask taskInfo={get_data} /> : null}
+      <Task taskInfo={taskData} />
     </Box>
     // </div>
   )

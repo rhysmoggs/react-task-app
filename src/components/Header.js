@@ -1,9 +1,9 @@
-const Button = () => {
+const Header = () => {
   return (
     <header>
-      <h1>Welcome</h1>
+      <h1>To Do List</h1>
     </header>
   )
 }
 
-export default Button
+export default Header
