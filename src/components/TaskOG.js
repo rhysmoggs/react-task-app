@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Task({ taskInfo }) {
+function Task({ showTasks }) {
   return (
     <div className='container'>
-      {taskInfo.map((task) => (
+      {showTasks.map((task) => (
         //change to individual task className styling?
         <div className='container'>
           <p>{task.task}</p>

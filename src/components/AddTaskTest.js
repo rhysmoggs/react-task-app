@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-function AddTask({ props }) {
-  //put all into one useState? or get all individually, then add to one state later?
+function AddTask(props) {
   const [task, setTask] = useState('')
   const [priority, setPriority] = useState('')
   const [day, setDay] = useState('')
@@ -9,20 +8,8 @@ function AddTask({ props }) {
   const handleSubmit = (e) => {
     //prevents form from submitting
     e.preventDefault()
-    //check if form is valid
-
-    //log state to console after form submission click
-    console.log(`${task}, ${priority}, ${day}`)
-    //add form data to state
-    const newTask = { task, priority, day }
-    console.log(newTask)
-    //pass state as props to OG onject? or bring OG object as props here,
-    //then update here.
-    props = { ...props, newTask }
-    console.log(props)
-
-    //or, "return" just new object with form data, pass back to OG object in App.js or wherever it is:
-    props.func()
+    // const id = Math.floor(Math.random() * 1000) + 1
+    props.changeData([task, priority, day])
   }
 
   return (
