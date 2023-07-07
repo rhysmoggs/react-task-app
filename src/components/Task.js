@@ -3,11 +3,15 @@ import React from 'react'
 function Task({ showTasks }) {
   return (
     <div className='container'>
-      <ul>
-        {showTasks.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </ul>
+      {showTasks.map((task, index) => (
+        <div key={index} className='container'>
+          <ul>
+            <li>{task.task}</li>
+            <li>{task.priority}</li>
+            <li>{task.day}</li>
+          </ul>
+        </div>
+      ))}
     </div>
   )
 }

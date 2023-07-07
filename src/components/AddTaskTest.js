@@ -9,7 +9,7 @@ function AddTask({ changeData }) {
     //prevents form from submitting
     e.preventDefault()
     // const id = Math.floor(Math.random() * 1000) + 1
-    changeData([task, priority, day])
+    changeData({ task, priority, day })
   }
 
   return (

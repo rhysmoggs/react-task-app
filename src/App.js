@@ -5,11 +5,20 @@ import { useState } from 'react'
 import Task from './components/Task'
 
 const App = () => {
-  const [taskData, setTaskData] = useState([])
+  const [taskData, setTaskData] = useState([
+    // {
+    //   task: 'testing',
+    //   priority: 'low',
+    //   day: 'tomorrow',
+    // },
+  ])
   console.log(taskData)
 
-  const addTask = (taskData) => {
-    setTaskData(taskData)
+  const addTask = (formData) => {
+    // need to add form data and keep track of it, continuously adding to taskData state
+
+    // update state with taskData from form
+    setTaskData([...taskData, formData])
   }
 
   return (
@@ -30,7 +39,11 @@ const App = () => {
       <AddTaskTest changeData={addTask} />
 
       {/* if taskData is empty, hide Task component, otherwise, show it */}
-      {taskData.length != 0 ? <Task showTasks={taskData} /> : null}
+      {taskData.length != 0 ? (
+        <Task showTasks={taskData} />
+      ) : (
+        'No Current Tasks'
+      )}
 
       {/* <p>{JSON.stringify(taskData)}</p> */}
     </Box>
