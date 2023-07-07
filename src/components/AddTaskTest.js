@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function AddTask(props) {
+function AddTask({ changeData }) {
   const [task, setTask] = useState('')
   const [priority, setPriority] = useState('')
   const [day, setDay] = useState('')
@@ -9,7 +9,7 @@ function AddTask(props) {
     //prevents form from submitting
     e.preventDefault()
     // const id = Math.floor(Math.random() * 1000) + 1
-    props.changeData([task, priority, day])
+    changeData([task, priority, day])
   }
 
   return (

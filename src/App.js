@@ -2,13 +2,17 @@ import Header from './components/Header'
 import AddTaskTest from './components/AddTaskTest'
 import { Box } from '@mui/material'
 import { useState } from 'react'
+import Task from './components/Task'
 
 const App = () => {
   const [taskData, setTaskData] = useState([])
   console.log(taskData)
 
+  const addTask = (taskData) => {
+    setTaskData(taskData)
+  }
+
   return (
-    // <div className='wrapper'>
     <Box
       sx={{
         maxWidth: '500px',
@@ -23,17 +27,13 @@ const App = () => {
     >
       <Header />
 
-      <AddTaskTest changeData={(taskData) => setTaskData(taskData)} />
+      <AddTaskTest changeData={addTask} />
 
-      <ul>
-        {taskData.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </ul>
+      {/* if taskData is empty, hide Task component, otherwise, show it */}
+      {taskData.length != 0 ? <Task showTasks={taskData} /> : null}
 
       {/* <p>{JSON.stringify(taskData)}</p> */}
     </Box>
-    // </div>
   )
 }
 
