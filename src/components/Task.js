@@ -1,6 +1,11 @@
+import { Button } from '@mui/material'
 import React from 'react'
 
-function Task({ showTasks }) {
+function Task({ showTasks, deleteTask }) {
+  const handleClick = (info) => {
+    deleteTask(info)
+  }
+
   return (
     <div className='container'>
       {showTasks.map((task, index) => (
@@ -9,6 +14,9 @@ function Task({ showTasks }) {
             <li>{task.task}</li>
             <li>{task.priority}</li>
             <li>{task.day}</li>
+            <Button onClick={() => handleClick(task.id)} variant='contained'>
+              Delete
+            </Button>
           </ul>
         </div>
       ))}

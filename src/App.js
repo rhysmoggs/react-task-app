@@ -5,20 +5,26 @@ import { useState } from 'react'
 import Task from './components/Task'
 
 const App = () => {
-  const [taskData, setTaskData] = useState([
-    // {
-    //   task: 'testing',
-    //   priority: 'low',
-    //   day: 'tomorrow',
-    // },
-  ])
-  console.log(taskData)
+  const [taskData, setTaskData] = useState([])
 
   const addTask = (formData) => {
     // need to add form data and keep track of it, continuously adding to taskData state
 
     // update state with taskData from form
     setTaskData([...taskData, formData])
+  }
+
+  const deleteTask = (info) => {
+    //retrieves index info after button click on specific task
+    console.log(info)
+    console.log('test parent')
+    //filter index against taskData array?
+    console.log(taskData)
+    //problem: info is local index, not global and relvant to taskData array
+    //need to create index as global variable so that it can be filtered
+    const result = taskData.filter((task) => task.id !== info)
+    console.log('new array after deleting task = ', result)
+    setTaskData(result)
   }
 
   return (
@@ -39,8 +45,8 @@ const App = () => {
       <AddTaskTest changeData={addTask} />
 
       {/* if taskData is empty, hide Task component, otherwise, show it */}
-      {taskData.length != 0 ? (
-        <Task showTasks={taskData} />
+      {taskData.length !== 0 ? (
+        <Task showTasks={taskData} deleteTask={deleteTask} />
       ) : (
         'No Current Tasks'
       )}

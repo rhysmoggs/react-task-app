@@ -8,8 +8,9 @@ function AddTask({ changeData }) {
   const handleSubmit = (e) => {
     //prevents form from submitting
     e.preventDefault()
-    // const id = Math.floor(Math.random() * 1000) + 1
-    changeData({ task, priority, day })
+    //find better way of assigning unique id. maybe +1 current id in list?
+    const id = Math.floor(Math.random() * 1000) + 1
+    changeData({ id, task, priority, day })
   }
 
   return (
