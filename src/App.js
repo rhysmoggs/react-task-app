@@ -1,5 +1,6 @@
 import Header from './components/Header'
-import AddTaskTest from './components/AddTaskTest'
+import AddTask from './components/AddTask'
+import EditTask from './components/EditTask'
 import { Box } from '@mui/material'
 import { useState } from 'react'
 import Task from './components/Task'
@@ -18,13 +19,21 @@ const App = () => {
     //retrieves index info after button click on specific task
     console.log(info)
     console.log('test parent')
-    //filter index against taskData array?
+    //current tasks:
     console.log(taskData)
-    //problem: info is local index, not global and relvant to taskData array
-    //need to create index as global variable so that it can be filtered
+    //remove task with targeted id from all others:
     const result = taskData.filter((task) => task.id !== info)
     console.log('new array after deleting task = ', result)
     setTaskData(result)
+  }
+  const editTask = (info) => {
+    //retrieves index info after button click on specific task
+    console.log('test edit:', info)
+    //find task based on id:
+    const result = taskData.filter((task) => task.id === info)
+    console.log(result)
+    setTaskData(result)
+    // console.log(taskData)
   }
 
   return (
@@ -42,14 +51,20 @@ const App = () => {
     >
       <Header />
 
-      <AddTaskTest changeData={addTask} />
+      <AddTask changeData={addTask} />
 
       {/* if taskData is empty, hide Task component, otherwise, show it */}
       {taskData.length !== 0 ? (
-        <Task showTasks={taskData} deleteTask={deleteTask} />
+        <Task
+          showTasks={taskData}
+          deleteTask={deleteTask}
+          editTask={editTask}
+        />
       ) : (
         'No Current Tasks'
       )}
+
+      <EditTask editTaskData={editTask} />
 
       {/* <p>{JSON.stringify(taskData)}</p> */}
     </Box>

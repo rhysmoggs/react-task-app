@@ -1,9 +1,14 @@
 import { Button } from '@mui/material'
 import React from 'react'
 
-function Task({ showTasks, deleteTask }) {
+function Task({ showTasks, deleteTask, editTask }) {
   const handleClick = (info) => {
     deleteTask(info)
+  }
+  const handleEdit = (edited) => {
+    console.log(edited)
+    // editTask('whaaat')
+    editTask('whaaat')
   }
 
   return (
@@ -16,6 +21,9 @@ function Task({ showTasks, deleteTask }) {
             <li>{task.day}</li>
             <Button onClick={() => handleClick(task.id)} variant='contained'>
               Delete
+            </Button>
+            <Button onClick={() => handleEdit(task.id)} variant='contained'>
+              Edit
             </Button>
           </ul>
         </div>
