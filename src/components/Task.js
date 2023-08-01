@@ -8,7 +8,8 @@ function Task({ showTasks, deleteTask, editTask }) {
   const handleEdit = (edited) => {
     console.log(edited)
     // editTask('whaaat')
-    editTask('whaaat')
+    editTask(edited)
+    console.log('this is: ' + edited)
   }
 
   return (

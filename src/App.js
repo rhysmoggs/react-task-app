@@ -31,9 +31,9 @@ const App = () => {
     console.log('test edit:', info)
     //find task based on id:
     const result = taskData.filter((task) => task.id === info)
-    console.log(result)
+    console.log('clg 1: ', result)
     setTaskData(result)
-    // console.log(taskData)
+    console.log('clg 2: ', taskData)
   }
 
   return (
